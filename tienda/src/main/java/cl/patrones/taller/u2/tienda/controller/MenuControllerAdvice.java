@@ -7,15 +7,21 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import cl.patrones.taller.u2.tienda.menu.ItemMenu;
+import cl.patrones.taller.u2.tienda.menu.service.MenuService;
 
 @ControllerAdvice
 public class MenuControllerAdvice {
 
+	private MenuService menuService;
+
+	public MenuControllerAdvice(MenuService menuService) {
+		super();
+		this.menuService = menuService;
+	}
 
 	@ModelAttribute("menu")
 	public List<ItemMenu> menu() {
-		// TODO: Actividad 1
-		return List.of();
+		return menuService.getMenu();
 	}
 	
 }
