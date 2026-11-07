@@ -20,6 +20,9 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
+import org.springframework.context.annotation.Import;
+import cl.patrones.taller.u2.SecurityConfig;
+
 import cl.patrones.taller.u2.catalogo.domain.Aviso;
 import cl.patrones.taller.u2.catalogo.domain.Categoria;
 import cl.patrones.taller.u2.catalogo.service.CategoriaService;
@@ -27,7 +30,8 @@ import cl.patrones.taller.u2.tienda.menu.service.MenuService;
 import cl.patrones.taller.u2.tienda.service.AvisoService;
 
 @WebMvcTest(TiendaController.class)
-@AutoConfigureMockMvc(addFilters = false)
+@AutoConfigureMockMvc
+@Import(SecurityConfig.class)
 class TiendaControllerTest {
 
 	@Autowired

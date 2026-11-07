@@ -80,10 +80,10 @@
 				</ul>
 				
 				<!-- USUARIO Y CARRO -->
-				<form class="d-flex" >
+				<form class="d-flex" data-th-object="${#authentication.principal.cliente}">
 					<span class="d-flex align-items-center pe-3">
-						Bienvenido XXXXX						
-						<a class="ms-2" data-th-href="@{/logout}" data-sec-authorize="isAuthenticated()">(Salir)</a>						
+						Bienvenido [[*{nombre}]]
+						<a class="ms-2" data-th-href="@{/logout}" data-sec-authorize="isAuthenticated()">(Salir)</a>
 						<a class="ms-2" data-th-href="@{/ingresar}" data-sec-authorize="!isAuthenticated()">(Ingresar)</a>
 					</span>
 					<a data-th-href="@{/carrito}" class="btn btn-outline-dark" type="submit">
@@ -92,7 +92,7 @@
 						<span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
 					</a>
 				</form>
-				<!-- END USUARIO Y CARRO-->
+				<!-- END USUARIO Y CARRO -->
 				
 			</div>
 		</div>

@@ -21,7 +21,7 @@ public class SecurityConfig {
 			.authorizeHttpRequests(authz -> authz.anyRequest().permitAll() )
 			.formLogin(form -> form.loginPage("/ingresar").loginProcessingUrl("/ingresar").permitAll())
 			.logout(logout -> logout.logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET")).permitAll())
-			//.anonymous(anonymous -> anonymous.principal( new UsuarioAnonimo() ))			
+			.anonymous(anonymous -> anonymous.principal( new UsuarioAnonimo()))
 		;
 		return httpSecurity.build();
 	}
